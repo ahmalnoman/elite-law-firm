@@ -74,13 +74,12 @@ export const metadata: Metadata = {
     alternateLocale: 'en_US',
     title: 'مكتب محاماة النخبة | Elite Law Firm — القاهرة منذ ٢٠١٧',
     description: SITE.descriptionAr,
-    images: [{ url: '/logo.png', alt: 'Elite Law Firm — مكتب محاماة النخبة' }],
+    // og:image is provided automatically by app/opengraph-image.tsx
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'مكتب محاماة النخبة | Elite Law Firm',
-    description: SITE.descriptionEn,
-    images: ['/logo.png'],
+    description: SITE.descriptionAr,
   },
   robots: {
     index: true,
