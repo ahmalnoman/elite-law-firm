@@ -16,21 +16,22 @@ const CLIENTS: Client[] = [
   { file: 'kaiiznlogo.png', name: 'Kaiizn' },
 ];
 
-// Repeat the set inside each group so a single group always exceeds the
-// widest screens — that, plus two identical groups + a -50% shift, keeps
-// the loop seamless with no empty (black) gap.
-const GROUP = [...CLIENTS, ...CLIENTS, ...CLIENTS];
+// Each group holds the unique set once. The CSS sizes a group to at least the
+// viewport (min-width:100vw) so two identical groups + a -50% shift loop
+// seamlessly with no gap, while keeping the track small enough for iOS Safari
+// (the old 48-tile track exceeded mobile GPU layer limits and froze).
+const GROUP = CLIENTS;
 
 function LogoTile({ client }: { client: Client }) {
   return (
-    <div className="shrink-0 mx-3 select-none">
-      <div className="relative h-24 w-48 rounded-xl border border-gold/25 bg-bone shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] ring-1 ring-gold/10 transition duration-300 hover:border-gold/55 hover:ring-gold/30 hover:-translate-y-0.5">
+    <div className="shrink-0 select-none">
+      <div className="relative h-20 w-40 sm:h-24 sm:w-48 rounded-xl border border-gold/25 bg-bone shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] ring-1 ring-gold/10 transition duration-300 hover:border-gold/55 hover:ring-gold/30 hover:-translate-y-0.5">
         <Image
           src={`/clients/${client.file}`}
           alt={client.name}
           fill
-          sizes="192px"
-          className="object-contain p-5"
+          sizes="(max-width: 640px) 160px, 192px"
+          className="object-contain p-4 sm:p-5"
         />
       </div>
     </div>

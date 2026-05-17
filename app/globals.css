@@ -277,11 +277,17 @@ html[dir='rtl'] .stat-num {
   /* force LTR geometry so the two groups tile seamlessly even when the
      page is RTL (Arabic) — otherwise inherited dir:rtl opens a gap */
   direction: ltr;
-  animation: marquee 80s linear infinite;
+  animation: marquee 38s linear infinite;
 }
 .marquee-group {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  gap: 2.25rem;
+  /* ≥ viewport so two groups + a -50% shift never reveal a gap, while the
+     whole track stays ~2× viewport (safe for iOS Safari layer limits) */
+  min-width: 100vw;
+  padding-inline: 1.125rem;
   flex-shrink: 0;
 }
 .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
@@ -290,12 +296,11 @@ html[dir='rtl'] .stat-num {
   to   { transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
+  /* accessibility: no auto-scroll. Show ONE clean static set, centred —
+     not the duplicated track. */
+  .marquee-track { animation: none; width: 100%; }
+  .marquee-group { min-width: 0; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
+  .marquee-group + .marquee-group { display: none; }
 }
 
 /* ===== 3D award medallion (Hero) ===== */
