@@ -268,8 +268,33 @@ html[dir='rtl'] .stat-num {
   /* establish an LTR context so the over-wide track is positioned from the
      left (x:0) even on RTL pages — otherwise RTL right-aligns it off-screen */
   direction: ltr;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  /* hard clip the over-wide track. iOS Safari fails to clip overflow:hidden
+     when a mask-image is also present, so the fade is done with overlay
+     gradients (below) instead of a mask, and contain:paint forces clipping. */
+  overflow: hidden;
+  contain: paint;
+}
+.marquee-wrap::before,
+.marquee-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  max-width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, #0a0a0a, transparent);
+}
+.marquee-wrap::after {
+  right: 0;
+  background: linear-gradient(270deg, #0a0a0a, transparent);
 }
 .marquee-track {
   display: flex;
