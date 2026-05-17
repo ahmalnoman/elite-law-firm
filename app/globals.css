@@ -271,10 +271,12 @@ html[dir='rtl'] .stat-num {
 .marquee-track {
   display: flex;
   width: max-content;
+  /* force LTR geometry so the duplicated halves tile seamlessly even when
+     the page is RTL (Arabic) — otherwise inherited dir:rtl opens a gap */
+  direction: ltr;
   animation: marquee 42s linear infinite;
 }
 .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
-html[dir='rtl'] .marquee-track { animation-direction: reverse; }
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
