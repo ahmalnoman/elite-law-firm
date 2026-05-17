@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useI18n } from '@/app/providers';
 import SectionHeader from './SectionHeader';
 import Icon from './Icon';
@@ -33,6 +34,12 @@ export default function Services() {
               <div className="hairline mt-6 opacity-50" />
             </motion.div>
           ))}
+        </div>
+        <div className="mt-14 text-center">
+          <Link href="/services" className="btn-ghost">
+            {dict.services.viewAll}
+            <Icon name="arrow" size={16} />
+          </Link>
         </div>
       </div>
     </section>
