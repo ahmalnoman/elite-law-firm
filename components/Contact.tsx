@@ -76,7 +76,7 @@ export default function Contact() {
                   <div className="text-xs uppercase tracking-widest text-bone/45 mb-1">
                     {locale === 'ar' ? 'هاتف' : 'Phone'}
                   </div>
-                  <a href={`tel:${dict.footer.phoneHref}`} className="hover:text-gold transition" dir="ltr">
+                  <a href={`tel:${dict.footer.phoneHref}`} className="hover:text-gold transition" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
                     {dict.footer.phone}
                   </a>
                 </div>
@@ -94,7 +94,7 @@ export default function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-gold transition"
-                    dir="ltr"
+                    dir={locale === 'ar' ? 'rtl' : 'ltr'}
                   >
                     {dict.footer.phone}
                   </a>
