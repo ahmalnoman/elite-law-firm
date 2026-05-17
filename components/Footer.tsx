@@ -6,9 +6,8 @@ import { usePathname } from 'next/navigation';
 import { useI18n } from '@/app/providers';
 
 export default function Footer() {
-  const { dict, locale } = useI18n();
+  const { dict } = useI18n();
   const pathname = usePathname();
-  const numDir = locale === 'ar' ? 'rtl' : 'ltr';
   const onHome = pathname === '/';
   const anchor = (id: string) => (onHome ? `#${id}` : `/#${id}`);
   return (
@@ -55,7 +54,7 @@ export default function Footer() {
           <a
             href={`tel:${dict.footer.phoneHref}`}
             className="block text-bone/70 mt-3 hover:text-gold transition"
-            dir={numDir}
+            dir="ltr"
           >
             {dict.footer.phone}
           </a>
@@ -64,7 +63,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="block text-bone/70 hover:text-gold transition"
-            dir={numDir}
+            dir="ltr"
           >
             {dict.footer.whatsapp}
           </a>

@@ -366,7 +366,7 @@ export const dictionaries: Record<Locale, Dict> = {
       practice: 'مجالات الممارسة',
       visit: 'زورونا',
       address: 'برج النيل، كورنيش النيل، جاردن سيتي، القاهرة، مصر',
-      phone: '+٢٠ ١١ ٤٦١٠ ٨٠٤٤',
+      phone: '+20 11 4610 8044',
       phoneHref: '+201146108044',
       whatsapp: 'واتساب',
       email: 'info@elite-law.net',
