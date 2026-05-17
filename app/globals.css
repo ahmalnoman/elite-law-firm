@@ -265,6 +265,9 @@ html[dir='rtl'] .stat-num {
 
 /* Client logo marquee */
 .marquee-wrap {
+  /* establish an LTR context so the over-wide track is positioned from the
+     left (x:0) even on RTL pages — otherwise RTL right-aligns it off-screen */
+  direction: ltr;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
