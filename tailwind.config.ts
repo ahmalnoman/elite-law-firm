@@ -34,10 +34,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-tajawal)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
-        arabic: ['var(--font-tajawal)', 'system-ui', 'sans-serif'],
-        latin: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-space)', 'system-ui', 'sans-serif'],
+        arabic: ['var(--font-almarai)', 'system-ui', 'sans-serif'],
+        latin: ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gold-gradient': 'linear-gradient(135deg, #d4af37 0%, #c9a961 35%, #a88a47 65%, #876c34 100%)',
