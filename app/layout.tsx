@@ -34,6 +34,7 @@ const arefRuqaa = Aref_Ruqaa({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://elite-law.net'),
   title: 'مكتب محاماة النخبة | Elite Law Firm — Since 2017',
   description:
     'مكتب محاماة النخبة — Premier law firm in Cairo since 2017. Corporate, litigation, arbitration and personal status counsel for discerning clients.',

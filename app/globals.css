@@ -21,6 +21,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* keep hash-anchored sections clear of the fixed header */
+[id] { scroll-margin-top: 6rem; }
+
 html[dir='rtl'] body {
   font-family: var(--font-almarai), system-ui, sans-serif;
 }
