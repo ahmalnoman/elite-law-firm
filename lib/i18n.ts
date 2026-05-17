@@ -2,6 +2,13 @@ export type Locale = 'ar' | 'en';
 
 export type Dict = {
   dir: 'rtl' | 'ltr';
+  brand: {
+    name: string;
+    since: string;
+    est: string;
+    monogram: string;
+    monogramYear: string;
+  };
   nav: {
     home: string;
     about: string;
@@ -20,6 +27,7 @@ export type Dict = {
     primaryCta: string;
     secondaryCta: string;
     scrollHint: string;
+    trust: string[];
   };
   stats: {
     years: string;
@@ -44,7 +52,22 @@ export type Dict = {
     eyebrow: string;
     title: string;
     subtitle: string;
+    viewAll: string;
     items: { title: string; body: string; icon: string }[];
+  };
+  servicesDetail: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    whatWeHandle: string;
+    ctaTitle: string;
+    ctaBody: string;
+    ctaButton: string;
+    items: { icon: string; title: string; intro: string; body: string; points: string[] }[];
+  };
+  clients: {
+    title: string;
+    names: string[];
   };
   cases: {
     eyebrow: string;
@@ -61,6 +84,10 @@ export type Dict = {
     eyebrow: string;
     title: string;
     subtitle: string;
+    directLine: string;
+    phoneLabel: string;
+    emailLabel: string;
+    addressLabel: string;
     step: string;
     of: string;
     next: string;
@@ -101,6 +128,13 @@ export type Dict = {
 export const dictionaries: Record<Locale, Dict> = {
   ar: {
     dir: 'rtl',
+    brand: {
+      name: 'مكتب محاماة النخبة',
+      since: 'منذ ٢٠١٧',
+      est: 'تأسس · ٢٠١٧',
+      monogram: 'م · ن',
+      monogramYear: 'م · ن · ٢٠٢٦',
+    },
     nav: {
       home: 'الرئيسية',
       about: 'من نحن',
@@ -111,15 +145,16 @@ export const dictionaries: Record<Locale, Dict> = {
       book: 'احجز استشارة',
     },
     hero: {
-      eyebrow: 'منذ عام ١٩٩٥ — القاهرة',
+      eyebrow: 'منذ عام ٢٠١٧ — القاهرة',
       title1: 'حيث تلتقي',
       titleAccent: 'الخبرة',
       title2: 'بالنخبة',
       subtitle:
-        'مكتب محاماة النخبة. ربع قرن من التميّز في القانون التجاري والتقاضي وقضايا الأحوال الشخصية، نخدم نخبة من العملاء داخل مصر وخارجها بأعلى المعايير المهنية.',
+        'مكتب محاماة النخبة. قرابة عقدٍ من التميّز في القانون التجاري والتقاضي وقضايا الأحوال الشخصية، نخدم نخبة من العملاء داخل مصر وخارجها بأعلى المعايير المهنية.',
       primaryCta: 'احجز استشارتك المجانية',
       secondaryCta: 'اكتشف خدماتنا',
       scrollHint: 'اكتشف المزيد',
+      trust: ['نقابة المحامين بالقاهرة', 'تحكيم غرفة التجارة الدولية', 'تصنيف ليجال ٥٠٠', '٢٠١٧ — ٢٠٢٦'],
     },
     stats: {
       years: 'عاماً من الخبرة',
@@ -130,7 +165,7 @@ export const dictionaries: Record<Locale, Dict> = {
     about: {
       eyebrow: 'من نحن',
       title: 'إرثٌ قانوني يُكتب بحبر الثقة',
-      p1: 'تأسس مكتب محاماة النخبة عام ١٩٩٥ على يد نخبة من أبرز القانونيين في مصر، ليُقدّم رؤية جديدة لمهنة المحاماة تجمع بين الأصالة الفقهية والذكاء التجاري الحديث.',
+      p1: 'تأسس مكتب محاماة النخبة عام ٢٠١٧ على يد نخبة من أبرز القانونيين في مصر، ليُقدّم رؤية جديدة لمهنة المحاماة تجمع بين الأصالة الفقهية والذكاء التجاري الحديث.',
       p2: 'نؤمن أن كل قضية تحمل بصمة إنسانية فريدة، ولذلك نُكرّس لها وقتاً واستراتيجية وفريقاً متخصصاً، ولا نُغلق ملفها قبل أن نُحقق لعميلنا أفضل النتائج الممكنة.',
       p3: 'يتشرف المكتب بثقة كبرى الشركات والمؤسسات والشخصيات العامة، ويمتد نشاطه ليشمل القاهرة والإسكندرية والمحاكم الدولية.',
       pillar1Title: 'سرية مطلقة',
@@ -144,6 +179,7 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: 'مجالات الممارسة',
       title: 'خدمات قانونية تُليق بمقامك',
       subtitle: 'باقة متكاملة من الخدمات تُغطي كل احتياجاتك القانونية، تحت سقف واحد وبفريق واحد.',
+      viewAll: 'كل مجالات الممارسة',
       items: [
         {
           icon: 'briefcase',
@@ -176,6 +212,63 @@ export const dictionaries: Record<Locale, Dict> = {
           body: 'صفقات عابرة للحدود، عقود الاستثمار الأجنبي، تنفيذ الأحكام الأجنبية، وتمثيل العملاء أمام الجهات الدولية.',
         },
       ],
+    },
+    servicesDetail: {
+      eyebrow: 'مجالات الممارسة',
+      title: 'خدماتنا القانونية بالتفصيل',
+      subtitle: 'ست تخصّصات وفريقٌ واحدٌ متفرّغ — وما يتضمّنه كل تكليفٍ فعلياً.',
+      whatWeHandle: 'ما نتولّاه',
+      ctaTitle: 'ناقش قضيتك بسريّةٍ تامّة',
+      ctaBody: 'أول استشارةٍ مجانيةٌ ومحميّةٌ بالامتياز المهني.',
+      ctaButton: 'احجز استشارة',
+      items: [
+        {
+          icon: 'briefcase',
+          title: 'القانون التجاري والشركات',
+          intro: 'نعمل كمستشارٍ قانونيٍّ خارجيٍّ للمؤسِّسين والشركات العائلية والمجموعات المُقيَّدة بالبورصة عبر دورة حياة الشركة كاملةً.',
+          body: 'من التأسيس وهيكلة رأس المال إلى الحوكمة والخروج، يصوغ فريقنا التجاري ويتفاوض على العقود التي تحمل المخاطر الحقيقية: اتفاقيات المساهمين، ووثائق الاستحواذ والمشروعات المشتركة، وعقود التوريد والتوزيع، وترتيبات التمويل. كل تكليفٍ يُدار بإشراف شريكٍ ويُبنى حول الهدف التجاري للعميل لا حول ساعات العمل.',
+          points: ['تأسيس الشركات وإعادة الهيكلة', 'اتفاقيات المساهمين والمؤسِّسين', 'الاستحواذ والاندماج والفحص النافي للجهالة', 'العقود التجارية والتوزيع', 'حوكمة الشركات والامتثال', 'حماية الملكية الفكرية'],
+        },
+        {
+          icon: 'scale',
+          title: 'التقاضي والتحكيم',
+          intro: 'نُمثِّل عملاءنا في النزاعات التجارية عالية القيمة أمام المحاكم المصرية بكل درجاتها وأمام هيئات التحكيم المحلية والدولية.',
+          body: 'نضع الاستراتيجية مبكراً: نرسم الطريق إلى النتيجة، ونُحكم السيطرة على ملف الإثبات، ونسعى إلى التسوية حين تخدم العميل وإلى المرافعة حين لا تخدمه. تمتد ممارستنا أمام محاكم أول درجة والاستئناف والنقض والقضاء الإداري، وأمام مركز القاهرة الإقليمي وغرفة التجارة الدولية.',
+          points: ['التقاضي التجاري والمدني', 'الطعن بالنقض والمرافعة الاستئنافية', 'التحكيم المحلي والدولي', 'تنفيذ الأحكام وقرارات التحكيم', 'الإجراءات والتدابير التحفظية', 'تقييم مخاطر النزاعات'],
+        },
+        {
+          icon: 'heart',
+          title: 'الأحوال الشخصية',
+          intro: 'نتولّى قضايا الأسرة بسريّةٍ تامّةٍ ومرجعيّةٍ عميقةٍ في قانون الأحوال الشخصية المصري والفقه الشرعي.',
+          body: 'نُعالج عقود الزواج ومنازعاته، والطلاق والخلع، والحضانة والرؤية والولاية، ودعاوى النفقة، والميراث وقسمة التركات — بما في ذلك الأبعاد العابرة للحدود وتنفيذ أحكام الأسرة الأجنبية في مصر.',
+          points: ['عقود الزواج ومنازعاته', 'الطلاق والخلع', 'الحضانة والرؤية والولاية', 'دعاوى النفقة', 'الميراث وقسمة التركات', 'تنفيذ أحكام الأسرة عبر الحدود'],
+        },
+        {
+          icon: 'building',
+          title: 'العقارات والاستثمار',
+          intro: 'نقدّم المشورة في اقتناء الأصول العقارية وتطويرها والتصرّف فيها، وفي هيكلة الاستثمار العقاري.',
+          body: 'نتولّى الفحص القانوني للملكية والتسجيل، والبيع والشراء والشُّفعة، والإيجار التجاري وحق الانتفاع، ومنازعات المطوّر والمشتري، وهيكلة المحافظ العقارية للمستثمرين من المؤسسات والأفراد.',
+          points: ['الفحص القانوني للملكية والتسجيل', 'البيع والشراء والشُّفعة', 'الإيجار التجاري وحق الانتفاع', 'منازعات البيع على الخارطة والمطوّرين', 'هيكلة الاستثمار العقاري', 'استشارات إدارة الممتلكات'],
+        },
+        {
+          icon: 'shield',
+          title: 'القانون الجنائي',
+          intro: 'ندافع عن الأفراد ومسؤولي الشركات في كل مرحلة — من التحقيق والاتهام إلى المحاكمة والطعن.',
+          body: 'نتميّز بقوّةٍ خاصّةٍ في القضايا الاقتصادية وجرائم ذوي الياقات البيضاء: النصب وخيانة الأمانة وجرائم الشيكات والإجراءات الضريبية والجمركية، مع صون حقوق المتهم الإجرائية بأعلى المعايير.',
+          points: ['الدفاع في القضايا الاقتصادية', 'النصب وخيانة الأمانة', 'جرائم الشيكات والأوراق المالية', 'الإجراءات الضريبية والجمركية', 'الطعن والنقض في المواد الجنائية', 'التمثيل أمام النيابة ومرحلة التحقيق'],
+        },
+        {
+          icon: 'globe',
+          title: 'القانون الدولي',
+          intro: 'نُهيكل ونُوثّق الصفقات العابرة للحدود ونحمي العملاء أمام الجهات الأجنبية والدولية.',
+          body: 'نُعدّ عقود الاستثمار الأجنبي والمشروعات المشتركة، ونتولّى الاعتراف بالأحكام وقرارات التحكيم الأجنبية وتنفيذها في مصر، وننسّق المسائل متعددة الولايات القضائية مع مكاتب مراسلةٍ موثوقة.',
+          points: ['الصفقات العابرة للحدود', 'عقود الاستثمار الأجنبي والمشروعات المشتركة', 'تنفيذ الأحكام وقرارات التحكيم الأجنبية', 'دعم التحكيم الدولي', 'التنسيق متعدد الولايات القضائية', 'الاستشارات التعاهدية والتنظيمية'],
+        },
+      ],
+    },
+    clients: {
+      title: 'موضع ثقة كبرى المؤسسات',
+      names: ['مجموعة قابضة', 'بنك وطني', 'شركة عقارية', 'شركاء الطاقة', 'استثمارات رأس المال', 'مجموعة صناعية', 'بيت تجاري', 'شركة تأمين', 'هيئة التنمية', 'مجموعة لوجستية'],
     },
     cases: {
       eyebrow: 'قضايا بارزة',
@@ -231,6 +324,10 @@ export const dictionaries: Record<Locale, Dict> = {
       title: 'أول استشارة مجانية — والسريّة مضمونة',
       subtitle:
         'املأ النموذج وسيتواصل معك أحد شركاء المكتب خلال ٢٤ ساعة عمل. كل ما تُشاركنا به محميٌّ بالامتياز المهني.',
+      directLine: 'تواصل مباشر',
+      phoneLabel: 'هاتف',
+      emailLabel: 'البريد',
+      addressLabel: 'العنوان',
       step: 'الخطوة',
       of: 'من',
       next: 'التالي',
@@ -262,7 +359,7 @@ export const dictionaries: Record<Locale, Dict> = {
       },
     },
     footer: {
-      tagline: 'النخبة في المحاماة — منذ ١٩٩٥',
+      tagline: 'النخبة في المحاماة — منذ ٢٠١٧',
       quickLinks: 'روابط سريعة',
       practice: 'مجالات الممارسة',
       visit: 'زورونا',
@@ -277,6 +374,13 @@ export const dictionaries: Record<Locale, Dict> = {
   },
   en: {
     dir: 'ltr',
+    brand: {
+      name: 'Elite Law Firm',
+      since: 'SINCE 2017',
+      est: 'EST · MMXVII',
+      monogram: 'EL · LF',
+      monogramYear: 'EL · LF · MMXXVI',
+    },
     nav: {
       home: 'Home',
       about: 'About',
@@ -287,15 +391,16 @@ export const dictionaries: Record<Locale, Dict> = {
       book: 'Book Consultation',
     },
     hero: {
-      eyebrow: 'Cairo · Since 1995',
+      eyebrow: 'Cairo · Since 2017',
       title1: 'Where',
       titleAccent: 'expertise',
       title2: 'meets the elite',
       subtitle:
-        'Elite Law Firm. A quarter-century of distinguished practice in corporate law, litigation and personal status — serving discerning clients across Egypt and beyond at the highest professional standards.',
+        'Elite Law Firm. Nearly a decade of distinguished practice in corporate law, litigation and personal status — serving discerning clients across Egypt and beyond at the highest professional standards.',
       primaryCta: 'Book a free consultation',
       secondaryCta: 'Explore practice areas',
       scrollHint: 'Discover',
+      trust: ['Cairo Bar Association', 'ICC Arbitration', 'Legal 500 · Recognised', '2017 — 2026'],
     },
     stats: {
       years: 'Years of practice',
@@ -306,7 +411,7 @@ export const dictionaries: Record<Locale, Dict> = {
     about: {
       eyebrow: 'About the firm',
       title: 'A legal legacy written in trust',
-      p1: 'Founded in 1995 by a select group of Egypt’s leading jurists, Elite Law Firm was built on a single conviction — that law is a craft of both intellect and integrity, and that the finest clients deserve nothing less than the finest counsel.',
+      p1: 'Founded in 2017 by a select group of Egypt’s leading jurists, Elite Law Firm was built on a single conviction — that law is a craft of both intellect and integrity, and that the finest clients deserve nothing less than the finest counsel.',
       p2: 'We believe every matter carries a uniquely human imprint. Each case is given time, strategy and a dedicated partner; nothing is closed until our client has secured the best outcome possible.',
       p3: 'The firm has been entrusted by leading corporations, institutions and public figures, with active practice spanning Cairo, Alexandria and international fora.',
       pillar1Title: 'Absolute confidentiality',
@@ -320,6 +425,7 @@ export const dictionaries: Record<Locale, Dict> = {
       eyebrow: 'Practice areas',
       title: 'Counsel worthy of your standing',
       subtitle: 'A complete suite of legal services, delivered under a single roof by a single dedicated team.',
+      viewAll: 'View all practice areas',
       items: [
         {
           icon: 'briefcase',
@@ -352,6 +458,63 @@ export const dictionaries: Record<Locale, Dict> = {
           body: 'Cross-border transactions, foreign-investment contracts, enforcement of foreign judgments and representation before international bodies.',
         },
       ],
+    },
+    servicesDetail: {
+      eyebrow: 'Practice areas',
+      title: 'Counsel, in depth',
+      subtitle: 'Six disciplines, one dedicated team — what each engagement actually involves.',
+      whatWeHandle: 'What we handle',
+      ctaTitle: 'Discuss your matter in confidence',
+      ctaBody: 'Your first consultation is complimentary and protected by professional privilege.',
+      ctaButton: 'Book a consultation',
+      items: [
+        {
+          icon: 'briefcase',
+          title: 'Corporate & Commercial',
+          intro: 'We act as outside general counsel to founders, family enterprises and listed groups across the full corporate lifecycle.',
+          body: "From formation and capital structuring to governance and exit, our commercial team drafts and negotiates the contracts that carry real risk: shareholders' agreements, M&A and joint-venture documentation, supply and distribution arrangements, and financing. Engagements are partner-led and built around the client's commercial objective, not the billable hour.",
+          points: ['Company formation & restructuring', "Shareholders' & founders' agreements", 'M&A and due diligence', 'Commercial contracts & distribution', 'Corporate governance & compliance', 'Intellectual-property protection'],
+        },
+        {
+          icon: 'scale',
+          title: 'Litigation & Arbitration',
+          intro: 'We litigate and arbitrate high-value commercial disputes before the Egyptian courts at every degree and before domestic and international arbitral tribunals.',
+          body: 'Strategy is set early: we map the route to a result, control the evidentiary record, and pursue settlement when it serves the client and trial when it does not. Our practice spans First Instance, Appeal, Cassation and the Administrative judiciary, and the CRCICA and ICC.',
+          points: ['Commercial & civil litigation', 'Cassation & appellate advocacy', 'Domestic & international arbitration', 'Enforcement of judgments & awards', 'Interim & precautionary measures', 'Disputes risk assessment'],
+        },
+        {
+          icon: 'heart',
+          title: 'Personal Status',
+          intro: 'Family matters are handled with discretion and a deep grounding in Egyptian personal-status law and Sharia jurisprudence.',
+          body: 'We act on marriage and its contracts, divorce and khulʿ, custody, visitation and guardianship, alimony (nafaqa) claims, and inheritance and estate division — including cross-border dimensions and enforcement of foreign family judgments in Egypt.',
+          points: ['Marriage contracts & disputes', 'Divorce & khulʿ', 'Custody, visitation & guardianship', 'Alimony / nafaqa claims', 'Inheritance & estate division', 'Cross-border family enforcement'],
+        },
+        {
+          icon: 'building',
+          title: 'Real Estate & Investment',
+          intro: 'We advise on the acquisition, development and disposal of real assets, and on structuring real-estate investment.',
+          body: 'Our work spans title due diligence and registration, sale, purchase and pre-emption, commercial and usufruct leasing, developer–purchaser disputes, and portfolio structuring for institutional and private investors.',
+          points: ['Title due diligence & registration', 'Sale, purchase & pre-emption', 'Commercial & usufruct leasing', 'Developer / off-plan disputes', 'Real-estate investment structuring', 'Property-management counsel'],
+        },
+        {
+          icon: 'shield',
+          title: 'Criminal Defence',
+          intro: 'We defend individuals and corporate officers at every stage — from inquiry and prosecution through trial and appeal.',
+          body: "We are particularly strong in economic and white-collar matters: fraud, breach of trust, cheque offences, and tax and customs proceedings, protecting the accused's procedural rights to the highest standard.",
+          points: ['Economic & white-collar defence', 'Fraud & breach-of-trust matters', 'Cheque & financial-instrument offences', 'Tax & customs proceedings', 'Appeal & cassation in criminal matters', 'Pre-trial & investigation representation'],
+        },
+        {
+          icon: 'globe',
+          title: 'International Practice',
+          intro: 'We structure and document cross-border transactions and protect clients before foreign and international fora.',
+          body: 'This includes foreign-investment and joint-venture contracts, recognition and enforcement of foreign judgments and arbitral awards in Egypt, and coordination of multi-jurisdiction matters with trusted correspondent counsel.',
+          points: ['Cross-border transactions', 'Foreign-investment & JV contracts', 'Enforcement of foreign judgments/awards', 'International arbitration support', 'Multi-jurisdiction coordination', 'Treaty & regulatory advisory'],
+        },
+      ],
+    },
+    clients: {
+      title: 'Trusted by leading institutions',
+      names: ['Holding Group', 'National Bank', 'Real-Estate Co.', 'Energy Partners', 'Capital Investments', 'Industrial Group', 'Trading House', 'Insurance Co.', 'Development Authority', 'Logistics Group'],
     },
     cases: {
       eyebrow: 'Notable matters',
@@ -407,6 +570,10 @@ export const dictionaries: Record<Locale, Dict> = {
       title: 'Your first consultation is complimentary — and confidential',
       subtitle:
         'Complete the form below and a partner will be in touch within one business day. Everything you share is protected by professional privilege.',
+      directLine: 'Direct line',
+      phoneLabel: 'Phone',
+      emailLabel: 'Email',
+      addressLabel: 'Address',
       step: 'Step',
       of: 'of',
       next: 'Continue',
@@ -438,7 +605,7 @@ export const dictionaries: Record<Locale, Dict> = {
       },
     },
     footer: {
-      tagline: 'The elite standard in counsel — since 1995',
+      tagline: 'The elite standard in counsel — since 2017',
       quickLinks: 'Quick links',
       practice: 'Practice areas',
       visit: 'Visit us',
