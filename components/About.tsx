@@ -35,7 +35,7 @@ export default function About() {
               <Image src="/logo.png" alt="Elite" width={420} height={240} className="opacity-90 w-3/4 h-auto" />
             </div>
             <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-ink to-transparent">
-              <div className="ornament text-[10px] tracking-[0.35em]">EST · MCMXCV</div>
+              <div className="ornament text-[10px] tracking-[0.35em]">{dict.brand.est}</div>
             </div>
           </div>
         </motion.div>
