@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useI18n } from '@/app/providers';
 import Icon from './Icon';
 
@@ -50,24 +51,25 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#contact" className="btn-gold">
+            <Link href="/contact" className="btn-gold">
               {dict.hero.primaryCta}
               <Icon name="arrow" className={locale === 'ar' ? 'rotate-180' : ''} size={18} />
-            </a>
-            <a href="#services" className="btn-ghost">
+            </Link>
+            <Link href="/services" className="btn-ghost">
               {dict.hero.secondaryCta}
-            </a>
+            </Link>
           </div>
 
           {/* Trust strip */}
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 text-xs text-bone/55 tracking-widest uppercase">
-            <span>★ Cairo Bar Association</span>
-            <span className="hidden sm:inline">|</span>
-            <span>ICC Arbitration</span>
-            <span className="hidden sm:inline">|</span>
-            <span>Legal 500 · Recognised</span>
-            <span className="hidden sm:inline">|</span>
-            <span>1995 — 2026</span>
+          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 text-xs text-bone/55 tracking-widest">
+            {dict.hero.trust.map((t, i) => (
+              <span key={t} className="flex items-center gap-x-8">
+                {i === 0 ? `★ ${t}` : t}
+                {i < dict.hero.trust.length - 1 && (
+                  <span className="hidden sm:inline text-bone/30">|</span>
+                )}
+              </span>
+            ))}
           </div>
         </motion.div>
 
@@ -80,13 +82,13 @@ export default function Hero() {
         >
           <div className="relative mx-auto max-w-md card-elite p-10 text-center">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-ink border border-gold/40 text-[11px] tracking-[0.3em] text-gold">
-              EST · MCMXCV
+              {dict.brand.est}
             </div>
             <div className="mx-auto w-44 h-44 relative grid place-items-center animate-floaty">
               <div className="absolute inset-0 rounded-full bg-gold/10 blur-2xl" />
               <Image src="/logo.png" alt="Elite Law Firm" width={300} height={170} className="relative z-10 w-full h-auto" />
             </div>
-            <div className="ornament my-6 text-[10px] tracking-[0.35em]">EL · LF</div>
+            <div className="ornament my-6 text-[10px] tracking-[0.35em]">{dict.brand.monogram}</div>
             <p className="text-bone/70 leading-relaxed">
               {locale === 'ar'
                 ? 'الميزان عهدنا، والغار وسامُنا — والثقة لغتنا الأولى.'
