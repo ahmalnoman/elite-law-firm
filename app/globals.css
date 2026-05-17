@@ -288,6 +288,121 @@ html[dir='rtl'] .marquee-track { animation-direction: reverse; }
   }
 }
 
+/* ===== 3D award medallion (Hero) ===== */
+.medallion-stage { perspective: 1100px; }
+
+.medallion-spin {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: medallionSpin 12s linear infinite;
+  will-change: transform;
+}
+.medallion-spin.is-paused { animation-play-state: paused; }
+@keyframes medallionSpin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+
+.medallion-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 9999px;
+  backface-visibility: hidden;
+  background:
+    radial-gradient(circle at 50% 38%, #1d1c19 0%, #131210 55%, #0a0a0a 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 175, 55, 0.55),
+    inset 0 0 26px rgba(201, 169, 97, 0.28),
+    inset 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+.medallion-face--back { transform: rotateY(180deg); }
+
+/* faux metallic extruded edge (thin stacked rings) */
+.medallion-edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #f3d98b, #c9a961 45%, #876c34 100%);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.45);
+}
+
+/* rotating conic halo ring behind the coin */
+.medallion-halo {
+  position: absolute;
+  inset: -14%;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(212, 175, 55, 0) 0deg,
+    rgba(212, 175, 55, 0.55) 70deg,
+    rgba(245, 241, 232, 0.15) 130deg,
+    rgba(212, 175, 55, 0) 200deg,
+    rgba(201, 169, 97, 0.45) 300deg,
+    rgba(212, 175, 55, 0) 360deg
+  );
+  filter: blur(14px);
+  animation: medallionHalo 16s linear infinite;
+  opacity: 0.7;
+}
+@keyframes medallionHalo { to { transform: rotate(360deg); } }
+
+.medallion-glow {
+  position: absolute;
+  inset: -8%;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 65%);
+  filter: blur(22px);
+  animation: medallionGlow 5.5s ease-in-out infinite;
+}
+@keyframes medallionGlow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.07); }
+}
+
+/* diagonal glass sheen sweeping across the face */
+.medallion-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.medallion-sheen::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -60%;
+  width: 45%;
+  height: 180%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.38),
+    transparent
+  );
+  transform: skewX(-16deg);
+  animation: medallionSheen 6.5s ease-in-out infinite;
+}
+@keyframes medallionSheen {
+  0%        { left: -60%; }
+  55%, 100% { left: 130%; }
+}
+
+.medallion-ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1px solid rgba(201, 169, 97, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .medallion-spin,
+  .medallion-halo,
+  .medallion-glow { animation: none; }
+  .medallion-sheen::before { animation: none; opacity: 0; }
+}
+
 /* Hide outline only when not keyboard focused */
 :focus { outline: none; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 6px; }

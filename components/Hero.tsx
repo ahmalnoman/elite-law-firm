@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useI18n } from '@/app/providers';
 import Icon from './Icon';
+import LogoMedallion from './LogoMedallion';
 
 export default function Hero() {
   const { dict, locale } = useI18n();
@@ -73,28 +74,14 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Right: emblem card */}
+        {/* Right: 3D award medallion */}
         <motion.div
           className="lg:col-span-5"
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1, delay: 0.2, ease: [0.2, 0.7, 0.2, 1] }}
         >
-          <div className="relative mx-auto max-w-md card-elite p-10 text-center">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-ink border border-gold/40 text-[11px] tracking-[0.3em] text-gold">
-              {dict.brand.est}
-            </div>
-            <div className="mx-auto w-44 h-44 relative grid place-items-center animate-floaty">
-              <div className="absolute inset-0 rounded-full bg-gold/10 blur-2xl" />
-              <Image src="/logo.png" alt="Elite Law Firm" width={300} height={170} className="relative z-10 w-full h-auto" />
-            </div>
-            <div className="ornament my-6 text-[10px] tracking-[0.35em]">{dict.brand.monogram}</div>
-            <p className="text-bone/70 leading-relaxed">
-              {locale === 'ar'
-                ? 'الميزان عهدنا، والغار وسامُنا — والثقة لغتنا الأولى.'
-                : 'The scales are our covenant, the laurel our honour — trust, our first language.'}
-            </p>
-          </div>
+          <LogoMedallion />
         </motion.div>
       </div>
 
