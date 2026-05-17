@@ -253,10 +253,14 @@ html[dir='rtl'] .numeral {
   font-family: var(--font-ruqaa), Georgia, serif;
   font-weight: 700;
   letter-spacing: 0;
+  /* Aref Ruqaa is calligraphic with tall strokes — needs generous leading
+     or multi-line headings collide (overrides Tailwind leading-* utilities) */
+  line-height: 1.6;
 }
 html[dir='rtl'] .stat-num {
   font-family: var(--font-almarai), system-ui, sans-serif;
   font-weight: 800;
+  line-height: 1.1;
 }
 
 /* Client logo marquee */
