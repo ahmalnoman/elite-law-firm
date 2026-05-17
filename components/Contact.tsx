@@ -76,7 +76,26 @@ export default function Contact() {
                   <div className="text-xs uppercase tracking-widest text-bone/45 mb-1">
                     {locale === 'ar' ? 'هاتف' : 'Phone'}
                   </div>
-                  <a href={`tel:${dict.footer.phone.replace(/\s/g, '')}`} className="hover:text-gold transition">
+                  <a href={`tel:${dict.footer.phoneHref}`} className="hover:text-gold transition" dir="ltr">
+                    {dict.footer.phone}
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-9 h-9 rounded-full grid place-items-center bg-ink-800 ring-1 ring-gold/30 text-gold">
+                  <Icon name="whatsapp" size={16} />
+                </span>
+                <div>
+                  <div className="text-xs uppercase tracking-widest text-bone/45 mb-1">
+                    {dict.footer.whatsapp}
+                  </div>
+                  <a
+                    href={`https://wa.me/${dict.footer.phoneHref.replace(/[^\d]/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-gold transition"
+                    dir="ltr"
+                  >
                     {dict.footer.phone}
                   </a>
                 </div>

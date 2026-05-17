@@ -51,8 +51,29 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <h4 className="numeral text-gold text-sm tracking-[0.3em] mb-5 uppercase">{dict.footer.visit}</h4>
           <p className="text-bone/70 leading-relaxed">{dict.footer.address}</p>
-          <p className="text-bone/70 mt-3" dir="ltr">{dict.footer.phone}</p>
-          <p className="text-bone/70" dir="ltr">{dict.footer.email}</p>
+          <a
+            href={`tel:${dict.footer.phoneHref}`}
+            className="block text-bone/70 mt-3 hover:text-gold transition"
+            dir="ltr"
+          >
+            {dict.footer.phone}
+          </a>
+          <a
+            href={`https://wa.me/${dict.footer.phoneHref.replace(/[^\d]/g, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-bone/70 hover:text-gold transition"
+            dir="ltr"
+          >
+            {dict.footer.whatsapp}
+          </a>
+          <a
+            href={`mailto:${dict.footer.email}`}
+            className="block text-bone/70 hover:text-gold transition"
+            dir="ltr"
+          >
+            {dict.footer.email}
+          </a>
         </div>
       </div>
 

@@ -117,6 +117,8 @@ export type Dict = {
     visit: string;
     address: string;
     phone: string;
+    phoneHref: string;
+    whatsapp: string;
     email: string;
     hours: string;
     hoursValue: string;
@@ -364,7 +366,9 @@ export const dictionaries: Record<Locale, Dict> = {
       practice: 'مجالات الممارسة',
       visit: 'زورونا',
       address: 'برج النيل، كورنيش النيل، جاردن سيتي، القاهرة، مصر',
-      phone: '+٢٠ ٢ ٢٧٩٢ ٥٠٠٠',
+      phone: '+٢٠ ١١ ٤٦١٠ ٨٠٤٤',
+      phoneHref: '+201146108044',
+      whatsapp: 'واتساب',
       email: 'info@elite-law.net',
       hours: 'ساعات العمل',
       hoursValue: 'الأحد – الخميس: ٩ صباحاً – ٧ مساءً',
@@ -610,7 +614,9 @@ export const dictionaries: Record<Locale, Dict> = {
       practice: 'Practice areas',
       visit: 'Visit us',
       address: 'Nile Tower, Corniche El Nil, Garden City, Cairo, Egypt',
-      phone: '+20 2 2792 5000',
+      phone: '+20 11 4610 8044',
+      phoneHref: '+201146108044',
+      whatsapp: 'WhatsApp',
       email: 'info@elite-law.net',
       hours: 'Working hours',
       hoursValue: 'Sun – Thu · 9 AM – 7 PM',
