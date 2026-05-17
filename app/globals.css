@@ -273,34 +273,20 @@ html[dir='rtl'] .stat-num {
 }
 .marquee-track {
   display: flex;
-  width: max-content;
-  /* force LTR geometry so the two groups tile seamlessly even when the
-     page is RTL (Arabic) — otherwise inherited dir:rtl opens a gap */
-  direction: ltr;
-  animation: marquee 38s linear infinite;
-}
-.marquee-group {
-  display: flex;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: space-around;
-  gap: 2.25rem;
-  /* ≥ viewport so two groups + a -50% shift never reveal a gap, while the
-     whole track stays ~2× viewport (safe for iOS Safari layer limits) */
-  min-width: 100vw;
-  padding-inline: 1.125rem;
-  flex-shrink: 0;
+  width: max-content;
+  /* force LTR geometry so the loop tiles correctly even on RTL (Arabic) pages */
+  direction: ltr;
+  animation: marquee 32s linear infinite;
 }
+.marquee-track > * { flex: 0 0 auto; }
 .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+/* 3 identical copies → shifting exactly one copy (-33.3333%) loops seamlessly.
+   (reduced-motion is handled in the component: it renders one static set.) */
 @keyframes marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  /* accessibility: no auto-scroll. Show ONE clean static set, centred —
-     not the duplicated track. */
-  .marquee-track { animation: none; width: 100%; }
-  .marquee-group { min-width: 0; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
-  .marquee-group + .marquee-group { display: none; }
+  to   { transform: translateX(-33.3333%); }
 }
 
 /* ===== 3D award medallion (Hero) ===== */
