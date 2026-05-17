@@ -16,6 +16,11 @@ const CLIENTS: Client[] = [
   { file: 'kaiiznlogo.png', name: 'Kaiizn' },
 ];
 
+// Repeat the set inside each group so a single group always exceeds the
+// widest screens — that, plus two identical groups + a -50% shift, keeps
+// the loop seamless with no empty (black) gap.
+const GROUP = [...CLIENTS, ...CLIENTS, ...CLIENTS];
+
 function LogoTile({ client }: { client: Client }) {
   return (
     <div className="shrink-0 mx-3 select-none">
@@ -32,9 +37,18 @@ function LogoTile({ client }: { client: Client }) {
   );
 }
 
+function Group({ hidden = false }: { hidden?: boolean }) {
+  return (
+    <div className="marquee-group" aria-hidden={hidden || undefined}>
+      {GROUP.map((c, i) => (
+        <LogoTile key={`${c.file}-${i}`} client={c} />
+      ))}
+    </div>
+  );
+}
+
 export default function ClientLogos() {
   const { dict } = useI18n();
-  const loop = [...CLIENTS, ...CLIENTS];
 
   return (
     <section className="relative py-16">
@@ -45,9 +59,8 @@ export default function ClientLogos() {
       </div>
       <div className="marquee-wrap overflow-hidden">
         <div className="marquee-track">
-          {loop.map((c, i) => (
-            <LogoTile key={`${c.file}-${i}`} client={c} />
-          ))}
+          <Group />
+          <Group hidden />
         </div>
       </div>
     </section>
