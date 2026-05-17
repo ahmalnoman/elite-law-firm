@@ -17,7 +17,7 @@ function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
   }, [inView, to, mv]);
 
   return (
-    <span ref={ref} className="numeral text-5xl sm:text-6xl text-gold-gradient">
+    <span ref={ref} className="numeral stat-num text-5xl sm:text-6xl text-gold-gradient">
       <motion.span>{rounded}</motion.span>
       {suffix}
     </span>
@@ -27,9 +27,9 @@ function Counter({ to, suffix = '' }: { to: number; suffix?: string }) {
 export default function Stats() {
   const { dict } = useI18n();
   const items = [
-    { value: 30, suffix: '+', label: dict.stats.years },
-    { value: 1200, suffix: '+', label: dict.stats.cases },
-    { value: 850, suffix: '+', label: dict.stats.clients },
+    { value: 9, suffix: '+', label: dict.stats.years },
+    { value: 350, suffix: '+', label: dict.stats.cases },
+    { value: 200, suffix: '+', label: dict.stats.clients },
     { value: 96, suffix: '%', label: dict.stats.rate },
   ];
 
